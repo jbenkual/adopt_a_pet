@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require("../db.js")
 
 router.get('/', function(req, res, next) {
   db.load(function (data) {
@@ -16,13 +17,15 @@ router.post('/', function(req, res, next) {
     res.send(400);
     return;
   }
+  //console.log(req.body);
   var pet = db.create(req.body);
+  console.log("test2");
   db.save(pet, function(data) {
     res.send(data);
   });
 });
 
-router.update('/', function(req, res, next) {
+router.put('/', function(req, res, next) {
   res.send(200);
 });
 
