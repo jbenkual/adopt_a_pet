@@ -20,8 +20,21 @@ app.service("PetService", function($http) {
   this.loadPets = function (cb) {
     $http.get("http://localhost:3000/pets")
     .success(function(response) {
-      console.log(response);
       cb(response);
+    });
+  };
+
+  this.deletePet = function(petId) {
+    $http.delete("http://localhost:3000/pets", petId)
+    .success(function(response) {
+      console.log(response);
+    });
+  };
+
+  this.adoptPet = function(petInfo) {
+    $http.put("http://localhost:3000/pets", petInfo)
+    .success(function(response) {
+      console.log(response);
     });
   };
 });
