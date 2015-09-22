@@ -1,0 +1,22 @@
+{
+  "name": "pet_client",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jbenkual/adopt_a_pet",
+  "authors": [
+    "jbenkual <joe@benkual.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.5.2",
+    "foundation-icon-fonts": "*",
+    "angular": "~1.4.6",
+    "angular-ui-router": "~0.2.15"
+  }
+}

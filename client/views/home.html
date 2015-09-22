@@ -1,9 +1,9 @@
 <h3>{{title}}</h3>
 
 <div class="row"></div>
-  <div ng-repeat="pet in pets" class="small-2 large-3 columns">
+  <div ng-repeat="pet in pets" class="small-2 large-2  columns">
     <div>
-      {{pet.name}}
+      {{pet.name}} <i class="fi-{{pet.gender}}-symbol"></i>
     </div>
     <div>
       {{pet.kind}} - {{pet.variety}}
