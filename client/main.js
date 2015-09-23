@@ -13,9 +13,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     controller: 'homeCtrl'
   })
   .state("submit", {
-    url: '/submit',
+    url: '/submit/:uid',
     templateUrl: 'views/submit.html',
     controller: 'submitCtrl'
+  })
+  .state("profile",{
+    url: '/profile/:uid',
+    templateUrl: 'views/profile.html',
+    controller: 'profileCtrl'
   });
 
 }]);
