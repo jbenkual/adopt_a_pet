@@ -1,7 +1,7 @@
 <!-- <h3 class="subtitle text-center">{{title}}</h3> -->
 <div class="column small-12 medium-6 large-4 animated" ng-repeat="pet in pets">
     <div class="panel text-center">
-        <img class="circle" src="http://placehold.it/200x200"> <i class="fi-x delete"></i>
+        <img class="circle" src="http://placehold.it/200x200"> <i ng-click="delete(pet._id)" class="fi-x delete"></i>
         <h3 class="ellipsis">{{pet.name}}</h3>
         <p class="ellipsis-2">{{pet.kind}}, {{pet.variety}}
           <i class="fi-{{pet.gender}}-symbol"></i>
@@ -9,8 +9,7 @@
         <hr>
         <div class="medium-12 sm-centered lg-centered column">
             <ul class="small-block-grid-4 text-center">
-                
-                 {{pet.desc}}
+              {{pet.desc}}
             </ul>
         </div>
         <hr>

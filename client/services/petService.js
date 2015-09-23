@@ -1,16 +1,7 @@
 app.service("PetService", function($http) {
   this.pets = [];
 
-  this.createPet = function() {
-    var petInfo = {
-      name: "Fluffy",
-      kind: "Kitty",
-      variety: "Stripey",
-      gender: "Girly",
-      age: 20,
-      desc: "Lovey Dovey",
-      available: true
-    };
+  this.createPet = function(petInfo) {
     $http.post("http://localhost:3000/pets", petInfo)
     .success(function(response) {
       console.log(response);
@@ -24,10 +15,10 @@ app.service("PetService", function($http) {
     });
   };
 
-  this.deletePet = function(petId) {
-    $http.delete("http://localhost:3000/pets", petId)
+  this.deletePet = function(petId, cb) {
+    $http.delete("http://localhost:3000/pets?id="+ petId)
     .success(function(response) {
-      console.log(response);
+      cb(response);
     });
   };
 

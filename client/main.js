@@ -11,6 +11,11 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     url: '/',
     templateUrl: 'views/home.html',
     controller: 'homeCtrl'
+  })
+  .state("submit", {
+    url: '/submit',
+    templateUrl: 'views/submit.html',
+    controller: 'submitCtrl'
   });
 
 }]);

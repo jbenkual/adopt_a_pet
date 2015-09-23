@@ -1,0 +1,40 @@
+
+<div class="column small-12 medium-6 large-4 animated">
+  <h1>Put up a pet for adoption</h1>
+    <div class="panel text-center">
+        <img class="circle" src="http://placehold.it/200x200"> <i ng-click="delete(pet._id)" class="fi-x delete"></i>
+        <p class="ellipsis-2">
+          <div class="row">
+            <div class="small-8 columns">
+              <input type="text" placeholder="Name" ng-model="petInfo.name"/>
+            </div>
+            <div class="small-2 columns">
+              <i class="fi-female-symbol mfchoice" ng-click="mf('f')" ng-class="{'blue': petInfo.gender === 'f'}"></i>
+            </div>
+            <div class="small-2 columns">
+              <i class="fi-male-symbol mfchoice" ng-click="mf('m')" id="m" ng-class="{'pink': petInfo.gender === 'm'}"></i>
+            </div>
+          </div>
+          <div class="small-8 columns">
+            <input type="text" placeholder="Cat, Dog, Bird, Etc..." ng-model="petInfo.kind"/>
+          </div>
+          <div class="small-4 columns">
+            <input type="text" placeholder="Age" ng-model="petInfo.age"/>
+          </div>
+          <div class="small-8 columns">
+            <input type="text" placeholder="Breed" ng-model="petInfo.variety"/>
+          </div>
+        </p>
+        <hr>
+        <div class="row">
+          <div class="medium-12 sm-centered lg-centered column">
+              <ul class="small-block-grid-4 text-center">
+                <textarea class="descInput" placeholder="Description" maxlength="78" ng-model="petInfo.desc"></textarea>
+              </ul>
+          </div>
+        </div>
+        <hr>
+        <i class="fi-save save" ui-sref="home" ng-click="newPet()"></i>
+        <i class="fi-x-circle cancel" ng-click="cancel"></i>
+    </div>
+</div>
