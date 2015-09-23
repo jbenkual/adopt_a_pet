@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     controller: 'homeCtrl'
   })
   .state("submit", {
-    url: '/submit/:uid',
+    url: '/pet/:uid',
     templateUrl: 'views/submit.html',
     controller: 'submitCtrl'
   })
