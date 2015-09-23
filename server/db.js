@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/adopt');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -7,28 +7,27 @@ db.once('open', function (callback) {
   console.log("Connected to database");
 });
 
-var Pet = mongoose.model('pet', {
-    name: String,
-    kind: String,
-    variety: String,
-    gender: Boolean,
-    age: Number,
-    desc: String,
-    available: Boolean
-});
+var Pet = require("./models/pet");
+var Client = require("./models/client");
 
-exports.create = function(data) {
-  var newPet = new Pet({ 
-    name: data.name,
-    kind: data.kind,
-    variety: data.variety,
-    gender: data.gender,
-    age: data.number,
-    desc: data.desc,
-    available: data.available
-  });
+exports.createPet = function(data) {
+  console.log("test!");
+  var newPet = new Pet(data);
+  console.log("oh noes!");
 
   return newPet;
+};
+
+exports.createClient = function(data) {
+  var newClient = new Pet({ 
+    name: data.name,
+    age: data.age,
+    email: data.email,
+    phone: data.phone,
+    pets: data.pets
+  });
+
+  return newClient;
 };
 
 exports.save = function(object, cb) {
@@ -45,13 +44,14 @@ exports.save = function(object, cb) {
   });
 };
 
-exports.load = function(cb) {
+exports.loadPets = function(cb) {
   var data = Pet.find({}, function(err, pets) {
     cb(pets);
   });
 };
 
-exports.remove = function(id) {
+exports.removePet = function(id) {
+  console.log(id);
   Pet.findById(id).remove( function(err, status) {
     if(err) {
       console.error(err);
@@ -59,7 +59,13 @@ exports.remove = function(id) {
   });
 };
 
-exports.update = function(id, key, value, cb) {
+exports.updatePet = function(id, key, value, cb) {
   
 };
+
+exports.loadSinglePet = function(cb) {
+  Client.findById(id, function(err, client) {
+    cb(client);
+  }).populate('pets')
+}
 
