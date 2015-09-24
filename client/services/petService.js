@@ -11,6 +11,8 @@ app.service("PetService", function($http) {
   this.loadPets = function (cb) {
     $http.get("http://localhost:3000/pets")
     .success(function(response) {
+      this.pets = response;
+      console.log(this.pets)
       cb(response);
     });
   };

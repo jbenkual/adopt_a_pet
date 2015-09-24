@@ -1,11 +1,23 @@
-
 body {  
-    background-color:#6793C5;
-    font-family: 
+    /*background-color:#6793C5;*/
+    background-size: 100% auto;
+    background-image: url("./views/img/pet1.jpg");
+    background-repeat: no-repeat;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: white;
+}
+
+h1 {
+  color: white;
 }
 
 .circle {
   border-radius: 50%;
+}
+
+.panel {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
 }
 
 /* css3 2 line ellipsis for text overflow */
@@ -15,17 +27,23 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: white;
+}
+p.ellipsis-2 {
+  color: white;
 }
 
 .panel h3, .ellipsis {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: white;
 }
 
 
 .home {
   font-size: 4em;
+  margin-right: 40px;
 }
 
 .home:hover { 
@@ -39,6 +57,7 @@ body {
 
 .heart {
   font-size: 4em;
+  margin-left: 40px;
 }
 
 .heart:hover { 
@@ -111,11 +130,11 @@ body {
 
 textarea {
   resize: none;
-  height: 60px;
+  height: 90px;
 }
 
 .blue {
-  color: blue;
+  color: lightblue;
 }
 
 .pink {

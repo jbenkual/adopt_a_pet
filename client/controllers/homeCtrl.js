@@ -14,13 +14,5 @@ app.controller('homeCtrl', ['$scope', '$state', 'PetService', function($scope, $
   $scope.newPet = function() {
     PetService.createPet();
   };
-  
-  $scope.delete = function (pId) {
-    console.log("delete " + pId);
-    PetService.deletePet(pId, function(response) {
-      if(response === "OK") {
-        $("#" + pid).parent().remove();
-      }
-    });
-  };
+
 }]);

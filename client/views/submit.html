@@ -2,7 +2,8 @@
 <div class="column small-12 medium-6 large-4 animated">
   <h1>Put up a pet for adoption</h1>
     <div class="panel text-center">
-        <img class="circle" src="http://placehold.it/200x200"> <i ng-click="delete(pet._id)" class="fi-x delete"></i>
+        <img class="circle" src="http://placehold.it/200x200"> <i data-reveal-id="myModal"  class="fi-x delete"></i> 
+        <!-- ng-click="delete(pet._id)" -->
         <p class="ellipsis-2">
           <div class="row">
             <div class="small-8 columns">
@@ -29,12 +30,19 @@
         <div class="row">
           <div class="medium-12 sm-centered lg-centered column">
               <ul class="small-block-grid-4 text-center">
-                <textarea class="descInput" placeholder="Description" maxlength="78" ng-model="petInfo.desc"></textarea>
+                <textarea class="descInput" placeholder="Description" maxlength="108" ng-model="petInfo.desc"></textarea>
               </ul>
           </div>
         </div>
         <hr>
         <i class="fi-save save" ui-sref="home" ng-click="newPet()"></i>
-        <i class="fi-x-circle cancel" ng-click="cancel"></i>
+        <i class="fi-x-circle cancel" ui-sref="home"></i>
     </div>
+</div>
+
+<div id="myModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2>Are you sure you want to delete this pet?</h2>
+  <button class="button alert" ui-sref="home" ng-click="delete()">DELETE</button>
+  <button id="cancel" class="button" ng-click="closeModal()">CANCEL</button>
+  <!-- <a class="close-reveal-modal" aria-label="Close">&#215;</a> -->
 </div>

@@ -19,7 +19,10 @@
     </ul>
     <section class="top-bar-section">
       <!-- Right Nav Section -->
-      <ul class="right">
+      <ul class="right" ng-show="newUser">
+        <li><a href="#" data-reveal-id="myModal">Login</a></li>
+      </ul>
+      <ul class="right" ng-hide="newUser">
         <li class="has-dropdown">
           <a href="#">Username</a>
           <ul class="dropdown">
@@ -27,7 +30,7 @@
             <li><a href="#">My Listings</a></li>
             <li><a href="#">My Profile</a></li>
             <li><a href="#">Account Settings</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="#" ng-click="newUser = true">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -46,11 +49,24 @@
       <div ui-view></div>
     </div>
   </div>
+
+  <div id="myModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <input type="text" placeholder="email address"></input>
+    <input type="password" placeholder="password"></input>
+    <button class="button">Login</button>
+    <button class="button" ui-sref="profile">Register</button>
+    <a href="#" >Forgot your password?</a>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
   
-  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="./bower_components/foundation/js/foundation.min.js"></script>
+  <script src="./bower_components/foundation/js/vendor/jquery.js"></script>
+  <script src="./bower_components/foundation/js/vendor/modernizr.js"></script>
+  <script src="./bower_components/foundation/js/foundation.js"></script>
   <script src="./bower_components/angular/angular.js"></script>
   <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   <script src="./main.js"></script>
   <script src="./services/petService.js"></script>
   <script src="./services/userService.js"></script>
