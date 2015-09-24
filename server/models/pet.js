@@ -7,8 +7,15 @@ var petSchema = Mongoose.Schema({
   gender: String,
   age: Number,
   desc: String,
-  available: Boolean
+  available: Boolean,
+  photo: String
 });
+
+petSchema.methods.toggleAvailable = function(cb) {
+  this.available = !this.available;
+  this.save(cb);
+  //return this.model('Pet').update({ _id: this._id }, {available: !this.available}, cb);
+};
 
 var Pet = Mongoose.model('pet', petSchema);
 
